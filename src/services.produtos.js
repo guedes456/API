@@ -60,4 +60,14 @@ function Excluir(cod_produto, callback) {
   });
 }
 
-export default { BuscaPorId, Listar, Inserir, Editar, Excluir };
+function BuscarPorPreco(preco_produto, callback) {
+  conexao.query("SELECT * FROM produto WHERE preco_produto = ?", [preco_produto], (erro, rows) => {
+    if (erro) {
+      callback(erro, null);
+      return;
+    }
+    callback(null, rows);
+  });
+}
+
+export default { BuscaPorId, BuscarPorPreco, Listar, Inserir, Editar, Excluir };

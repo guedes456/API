@@ -92,4 +92,23 @@ function Excluir(req, res) {
   });
 }
 
-export default { Saude, BuscaPorId, Listar, Editar, Inserir, Excluir };
+function BuscaPorPreco(req, res) {
+  const { preco_produto } = req.body
+  if (!preco_produto) {
+    res.status(400).json({ erro: "preco_produto é obrigatório" });
+    return;
+  }
+  servicesProdutos.BuscarPorPreco(preco_produto, (erro, resultado) => {
+    if (erro) {
+      res.status(500).json({ erro: "Erro ao encontrar produto" });
+      return;
+    }
+    if (!resultado.length) {
+      res.status(404).json({ erro: "Nenhum produto encontrado com o preço informado" });
+      return;
+    }
+    res.status(200).json(resultado);
+  })
+}
+
+export default { Saude, BuscaPorId, BuscaPorPreco, Listar, Editar, Inserir, Excluir };

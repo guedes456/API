@@ -7,6 +7,8 @@ routes.get("/health", controllersProdutos.Saude);
 
 routes.get("/produto/:id", controllersProdutos.BuscaPorId);
 
+routes.get("/preco", controllersProdutos.BuscaPorPreco);
+
 routes.get("/produtos", controllersProdutos.Listar);
 
 routes.post("/produto", controllersProdutos.Inserir);
