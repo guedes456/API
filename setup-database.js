@@ -3,7 +3,7 @@ import mysql from 'mysql2';
 const conexaoSemDB = mysql.createConnection({
     host: 'localhost',
     user: 'root', // ALTERAR AQUI
-    password: '' // ALTERAR AQUI
+    password: 'root' // ALTERAR AQUI
 });
 
 conexaoSemDB.connect((erro) => {
