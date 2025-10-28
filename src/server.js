@@ -12,10 +12,6 @@ app.use(cors());
 
 app.use(routes);
 
-
-
-
-
-app.listen(3000,function(){
+app.listen(3000, function () {
     console.log("servidor executando na porta 3000");
 });

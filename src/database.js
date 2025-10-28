@@ -3,7 +3,7 @@ import mysql from 'mysql2';
 const conexao = mysql.createConnection({
     host: 'localhost',
     user: 'root',      // ALTERE AQUI
-    password: 'SENHA123',     // ALTERE AQUI
+    password: '',     // ALTERE AQUI
     database: 'api'
 });
 

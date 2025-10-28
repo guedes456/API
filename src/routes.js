@@ -1,14 +1,18 @@
-import {Router } from 'express'
-import controllersProdutos from './controllers.produtos.js';
+import { Router } from "express";
+import controllersProdutos from "./controllers.produtos.js";
 const routes = Router();
 
-routes.get("/produto",controllersProdutos.Listar);
+routes.get("/", controllersProdutos.Saude);
+routes.get("/health", controllersProdutos.Saude);
+
+routes.get("/produto/:id", controllersProdutos.BuscaPorId);
+
+routes.get("/produtos", controllersProdutos.Listar);
 
 routes.post("/produto", controllersProdutos.Inserir);
 
-routes.put("/produto", controllersProdutos.Editar);
+routes.put("/produto/:id", controllersProdutos.Editar);
 
-routes.delete("/produto", controllersProdutos.Excluir);
-
+routes.delete("/produto/:id", controllersProdutos.Excluir);
 
 export default routes;
